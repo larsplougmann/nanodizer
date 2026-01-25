@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nanodizer | Biotech Innovation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #050505;
+            color: #ffffff;
+            font-family: 'Orbitron', sans-serif;
+            overflow-x: hidden;
+        }
+
+        header {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle, rgba(0,255,157,0.05) 0%, rgba(0,0,0,1) 70%);
+        }
+
+        h1 {
+            font-size: 5rem;
+            letter-spacing: 1.5rem;
+            text-transform: uppercase;
+            background: linear-gradient(to right, #00f2fe, #4facfe, #00ff9d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 15px rgba(79, 172, 254, 0.5));
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .img-card {
+            height: 500px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 5px;
+            filter: grayscale(40%) contrast(120%);
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .img-card:hover {
+            filter: grayscale(0%) contrast(100%);
+            transform: scale(1.02);
+            border: 1px solid rgba(0, 255, 157, 0.5);
+            box-shadow: 0 0 30px rgba(0, 255, 157, 0.2);
+        }
+
+        /* Mock images using high-quality biotech sources */
+        .img1 { background-image: url('https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&q=80&w=1000'); }
+        .img2 { background-image: url('https://images.unsplash.com/photo-1530210124550-912dc1381cb8?auto=format&fit=crop&q=80&w=1000'); }
+        .img3 { background-image: url('https://images.unsplash.com/photo-1614935151651-0bea6508db6b?auto=format&fit=crop&q=80&w=1000'); }
+        .img4 { background-image: url('https://images.unsplash.com/photo-1579154273821-3962635a1f6a?auto=format&fit=crop&q=80&w=1000'); }
+
+        footer {
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Nanodizer</h1>
+    </header>
+
+    <div class="gallery">
+        <div class="img-card img1"></div>
+        <div class="img-card img2"></div>
+        <div class="img-card img3"></div>
+        <div class="img-card img4"></div>
+    </div>
+
+    <footer>
+        <div style="width: 50px; height: 2px; background: #00ff9d;"></div>
+    </footer>
+
+</body>
+</html>
