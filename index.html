@@ -16,7 +16,7 @@
             background-color: #050505;
             color: #ffffff;
             font-family: 'Orbitron', sans-serif;
-            overflow-x: hidden;
+            overflow: hidden; /* Prevents accidental scrolling on a single-page view */
         }
 
         header {
@@ -24,25 +24,51 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: radial-gradient(circle, rgba(0,255,157,0.05) 0%, rgba(0,0,0,1) 70%);
+            background: radial-gradient(circle, rgba(0,255,157,0.05) 0%, rgba(0,0,0,1) 80%);
+            padding: 20px; /* Padding prevents text hitting screen edges */
         }
 
         h1 {
-            font-size: 5rem;
+            /* clamp(minimum, preferred, maximum) - scales fluidly between sizes */
+            font-size: clamp(1.8rem, 10vw, 5rem); 
             letter-spacing: 1.5rem;
             text-transform: uppercase;
+            text-align: center;
             background: linear-gradient(to right, #00f2fe, #4facfe, #00ff9d);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 15px rgba(79, 172, 254, 0.5));
+            filter: drop-shadow(0 0 15px rgba(79, 172, 254, 0.4));
+            
+            /* Center the text accurately despite the large letter-spacing on the right */
+            text-indent: 1.5rem; 
+        }
+
+        /* Adjustments for smaller mobile screens */
+        @media (max-width: 600px) {
+            h1 {
+                letter-spacing: 0.5rem;
+                text-indent: 0.5rem;
+            }
+            
+            footer {
+                bottom: 30px;
+            }
         }
 
         footer {
-            height: 200px;
+            position: absolute;
+            bottom: 50px;
+            width: 100%;
             display: flex;
             justify-content: center;
-            align-items: center;
             opacity: 0.3;
+        }
+
+        .accent-line {
+            width: 40px;
+            height: 1px;
+            background: #00ff9d;
+            box-shadow: 0 0 10px #00ff9d;
         }
     </style>
 </head>
@@ -52,15 +78,8 @@
         <h1>Nanodizer</h1>
     </header>
 
-    <div class="gallery">
-        <div class="img-card img1"></div>
-        <div class="img-card img2"></div>
-        <div class="img-card img3"></div>
-        <div class="img-card img4"></div>
-    </div>
-
     <footer>
-        <div style="width: 50px; height: 2px; background: #00ff9d;"></div>
+        <div class="accent-line"></div>
     </footer>
 
 </body>
