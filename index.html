@@ -16,7 +16,7 @@
             background-color: #050505;
             color: #ffffff;
             font-family: 'Orbitron', sans-serif;
-            overflow: hidden; /* Prevents accidental scrolling on a single-page view */
+            overflow: hidden;
         }
 
         header {
@@ -25,11 +25,10 @@
             align-items: center;
             justify-content: center;
             background: radial-gradient(circle, rgba(0,255,157,0.05) 0%, rgba(0,0,0,1) 80%);
-            padding: 20px; /* Padding prevents text hitting screen edges */
+            padding: 20px;
         }
 
         h1 {
-            /* clamp(minimum, preferred, maximum) - scales fluidly between sizes */
             font-size: clamp(1.8rem, 10vw, 5rem); 
             letter-spacing: 1.5rem;
             text-transform: uppercase;
@@ -37,21 +36,29 @@
             background: linear-gradient(to right, #00f2fe, #4facfe, #00ff9d);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 15px rgba(79, 172, 254, 0.4));
+            text-indent: 1.5rem;
             
-            /* Center the text accurately despite the large letter-spacing on the right */
-            text-indent: 1.5rem; 
+            /* The Breathing Magic */
+            animation: breathe 4s ease-in-out infinite;
         }
 
-        /* Adjustments for smaller mobile screens */
+        @keyframes breathe {
+            0%, 100% {
+                filter: drop-shadow(0 0 10px rgba(79, 172, 254, 0.3));
+                opacity: 0.8;
+                transform: scale(1);
+            }
+            50% {
+                filter: drop-shadow(0 0 25px rgba(0, 255, 157, 0.6));
+                opacity: 1;
+                transform: scale(1.01); /* Very subtle pulse */
+            }
+        }
+
         @media (max-width: 600px) {
             h1 {
                 letter-spacing: 0.5rem;
                 text-indent: 0.5rem;
-            }
-            
-            footer {
-                bottom: 30px;
             }
         }
 
@@ -69,6 +76,9 @@
             height: 1px;
             background: #00ff9d;
             box-shadow: 0 0 10px #00ff9d;
+            /* Footer also breathes slightly out of sync for depth */
+            animation: breathe 4s ease-in-out infinite reverse;
+            animation-delay: 1s;
         }
     </style>
 </head>
